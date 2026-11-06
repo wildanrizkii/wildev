@@ -1,5 +1,5 @@
 {
-  "name": "wildman-portfolio",
+  "name": "wildev-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@tanstack/redact": "^0.3.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^14.9.1",
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27",
     "next": "16.4.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-icons": "^5.7.0",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",

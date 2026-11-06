@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# wildev-portfolio
+
+Personal engineering portfolio for **WILDev.**, built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, and Lenis smooth scrolling.
 
 ## Getting Started
 
