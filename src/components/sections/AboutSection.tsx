@@ -18,6 +18,29 @@ const foundations = [
   },
 ];
 
+const headerContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
+};
+
+const headerItemVariants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export default function AboutSection() {
   return (
     <section
@@ -25,18 +48,30 @@ export default function AboutSection() {
       className="max-w-7xl mx-auto px-6 sm:px-8 py-20 sm:py-28"
     >
       {/* Top Header & Specification Metadata Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 gap-4">
-        <div className="text-xs font-mono-tech uppercase tracking-widest text-secondary">
+      <motion.div
+        variants={headerContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 sm:mb-16 gap-4"
+      >
+        <motion.div
+          variants={headerItemVariants}
+          className="text-xs font-mono-tech uppercase tracking-widest text-secondary"
+        >
           01 / ABOUT WILDev.
-        </div>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono-tech text-secondary">
+        </motion.div>
+        <motion.div
+          variants={headerItemVariants}
+          className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono-tech text-secondary"
+        >
           <span>ROLE: FULLSTACK WEB DEVELOPER</span>
           <span className="opacity-40">•</span>
           <span>COMPANY: PT GANESHA OPERATION</span>
           <span className="opacity-40">•</span>
           <span>LOC: BANDUNG (UTC+7)</span>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Big Statement & Narrative Dossier */}
@@ -96,13 +131,12 @@ export default function AboutSection() {
         >
           {/* Subtle Vertical Rotated Accent Track (Echoing DEV and RETROSPECTIVE) */}
           <div
-            className="hidden md:flex flex-col items-center justify-between border-r border-borderline pr-6 select-none"
+            className="hidden md:flex flex-col items-center select-none"
             aria-hidden="true"
           >
             <span className="text-[10px] font-mono-tech text-secondary tracking-[0.25em] uppercase [writing-mode:vertical-rl] rotate-180">
               EXPERIENCE &amp; FOUNDATIONS
             </span>
-            <div className="w-[1.5px] h-12 bg-primary/30 mt-6" />
           </div>
 
           {/* Content Block */}

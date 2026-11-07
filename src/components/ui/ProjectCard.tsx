@@ -18,7 +18,7 @@ export default function ProjectCard({
       {/* Visual Preview */}
       <div className="lg:col-span-7">
         {project.previewType === "image" && project.imageUrl ? (
-          <div className="overflow-hidden border border-borderline bg-surface relative aspect-[16/10]">
+          <div className="overflow-hidden border border-borderline bg-surface relative aspect-16/10">
             <Image
               alt={`${project.title} interface preview`}
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
@@ -291,7 +291,7 @@ export default function ProjectCard({
           <button
             type="button"
             onClick={() => onOpenCaseStudy(project)}
-            className="min-h-[44px] inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider text-primary group-hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+            className="min-h-11 inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider text-primary group-hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
           >
             <span>View Case Study</span>
             <FiArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />

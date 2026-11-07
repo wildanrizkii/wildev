@@ -12,6 +12,29 @@ interface ActivitySectionProps {
   initialData?: GitHubActivityData;
 }
 
+const headerContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
+};
+
+const headerItemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export default function ActivitySection({ initialData }: ActivitySectionProps) {
   const [data, setData] = useState<GitHubActivityData | undefined>(initialData);
 
@@ -50,16 +73,31 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
       id="activity"
       className="max-w-7xl mx-auto px-6 sm:px-8 py-24"
     >
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <motion.div
+        variants={headerContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"
+      >
         <div>
-          <span className="text-xs font-mono-tech uppercase tracking-widest text-secondary block mb-3">
+          <motion.span
+            variants={headerItemVariants}
+            className="text-xs font-mono-tech uppercase tracking-widest text-secondary block mb-3"
+          >
             04 / OPEN SOURCE &amp; ACTIVITY
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-normal tracking-tightest text-primary">
+          </motion.span>
+          <motion.h2
+            variants={headerItemVariants}
+            className="text-3xl sm:text-5xl font-normal tracking-tightest text-primary"
+          >
             Consistency in every commit.
-          </h2>
+          </motion.h2>
         </div>
-        <div className="text-xs font-mono-tech text-secondary flex items-center space-x-3">
+        <motion.div
+          variants={headerItemVariants}
+          className="text-xs font-mono-tech text-secondary flex items-center space-x-3"
+        >
           <a
             href={profileUrl}
             target="_blank"
@@ -72,8 +110,8 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
           <span suppressHydrationWarning>
             {totalContribs.toLocaleString("en-US")}+ contributions (last 12 mos)
           </span>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Heatmap Panel Container */}
       <motion.div

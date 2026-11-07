@@ -31,7 +31,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full z-40 bg-canvas transition-colors">
+    <header className="sticky top-0 w-full z-40 bg-canvas transition-colors">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between relative">
         {/* Brand Logo / Wordmark */}
         <a
@@ -86,9 +86,9 @@ export default function Header() {
             className="md:hidden min-w-11 min-h-11 flex items-center justify-center p-2 text-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
           >
             {mobileOpen ? (
-              <FiX className="w-6 h-6" aria-hidden="true" />
+              <FiX className="w-6 h-6 pointer-events-none" aria-hidden="true" />
             ) : (
-              <FiMenu className="w-6 h-6" aria-hidden="true" />
+              <FiMenu className="w-6 h-6 pointer-events-none" aria-hidden="true" />
             )}
           </button>
         </div>

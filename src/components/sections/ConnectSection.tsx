@@ -42,9 +42,15 @@ export default function ConnectSection() {
       id="connect"
       className="max-w-7xl mx-auto px-6 sm:px-8 py-24"
     >
-      <div className="text-xs font-mono-tech uppercase tracking-widest text-secondary mb-4">
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+        className="text-xs font-mono-tech uppercase tracking-widest text-secondary mb-4"
+      >
         06 / CONNECT
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Direct Inquiry Box */}

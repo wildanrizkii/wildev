@@ -37,6 +37,7 @@ export const techStackData: TechPillar[] = [
       "Redis Cache",
       "IndexedDB (Offline-first)",
       "SQL Optimization",
+      "Role-Based Access (RBAC)",
     ],
   },
   {

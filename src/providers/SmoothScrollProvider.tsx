@@ -4,6 +4,12 @@ import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import type React from "react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -47,6 +53,13 @@ export default function SmoothScrollProvider({
     }
     rafId = requestAnimationFrame(raf);
 
+    const handleScroll = () => {
+      ScrollTrigger.update();
+    };
+    lenisInstance.on("scroll", handleScroll);
+
+    gsap.ticker.lagSmoothing(0);
+
     requestAnimationFrame(() => {
       setLenis(lenisInstance);
     });
@@ -74,6 +87,7 @@ export default function SmoothScrollProvider({
     return () => {
       document.removeEventListener("click", handleAnchorClick);
       cancelAnimationFrame(rafId);
+      lenisInstance.off("scroll", handleScroll);
       lenisInstance.destroy();
       lenisRef.current = null;
       setLenis(null);

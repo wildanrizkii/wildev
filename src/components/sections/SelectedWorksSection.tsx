@@ -12,6 +12,29 @@ type FilterType = "all" | "apps" | "apis";
 
 const FEATURED_COUNT = 3;
 
+const headerContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
+};
+
+const headerItemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export default function SelectedWorksSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState<FilterType>("all");
@@ -53,16 +76,31 @@ export default function SelectedWorksSection() {
       className="max-w-7xl mx-auto px-6 sm:px-8 py-24"
     >
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <motion.div
+        variants={headerContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"
+      >
         <div>
-          <span className="text-xs font-mono-tech uppercase tracking-widest text-secondary block mb-3">
+          <motion.span
+            variants={headerItemVariants}
+            className="text-xs font-mono-tech uppercase tracking-widest text-secondary block mb-3"
+          >
             02 / SELECTED WORKS
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-normal tracking-tightest text-primary">
+          </motion.span>
+          <motion.h2
+            variants={headerItemVariants}
+            className="text-3xl sm:text-5xl font-normal tracking-tightest text-primary"
+          >
             A selection of things I&apos;ve built.
-          </h2>
+          </motion.h2>
         </div>
-        <div className="flex flex-col items-start md:items-end gap-2">
+        <motion.div
+          variants={headerItemVariants}
+          className="flex flex-col items-start md:items-end gap-2"
+        >
           <p className="text-xs font-mono-tech text-secondary uppercase tracking-wider">
             ARCHIVE (2025 – 2026) · 7 REPOSITORIES
           </p>
@@ -102,8 +140,8 @@ export default function SelectedWorksSection() {
               APIs (3)
             </button>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Featured Works List */}
       <div className="space-y-24">

@@ -33,7 +33,7 @@ export default function HeroSection() {
           {/* Main Portrait Visual */}
           <div
             onContextMenu={(e) => e.preventDefault()}
-            className="flex-1 relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto w-full h-full min-h-[380px] sm:min-h-[460px] lg:min-h-[540px] overflow-hidden bg-surface select-none"
+            className="flex-1 relative aspect-3/4 sm:aspect-4/5 lg:aspect-auto w-full h-full min-h-95 sm:min-h-115 lg:min-h-135 overflow-hidden bg-surface select-none"
           >
             <Image
               alt="Editorial portrait of software engineer with handcrafted leather artisan field pack on stone coast"
@@ -148,7 +148,7 @@ export default function HeroSection() {
                 <a
                   href="#works"
                   onClick={(e) => handleScrollTo(e, "#works")}
-                  className="w-full sm:w-auto min-h-[44px] px-8 py-3.5 border border-primary text-xs font-mono-tech uppercase tracking-wider text-primary text-center hover:bg-primary hover:text-canvas transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary flex items-center justify-center select-none"
+                  className="w-full sm:w-auto min-h-11 px-8 py-3.5 border border-primary text-xs font-mono-tech uppercase tracking-wider text-primary text-center hover:bg-primary hover:text-canvas transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary flex items-center justify-center select-none"
                 >
                   Explore works
                 </a>
