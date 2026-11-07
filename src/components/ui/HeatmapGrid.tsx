@@ -43,7 +43,7 @@ export default function HeatmapGrid({ days = contributionMatrixData }: HeatmapGr
         aria-label="GitHub 52-week contribution heatmap matrix"
       >
         <div
-          className="heatmap-grid-scroll min-w-[720px] select-none py-1"
+          className="heatmap-grid-scroll min-w-180 select-none py-1"
           role="grid"
           aria-readonly="true"
         >
@@ -57,7 +57,7 @@ export default function HeatmapGrid({ days = contributionMatrixData }: HeatmapGr
               onMouseLeave={() => setActiveCell(null)}
               onFocus={() => setActiveCell(day)}
               onBlur={() => setActiveCell(null)}
-              className={`w-[11px] h-[11px] rounded-[1px] ${
+              className={`w-2.75 h-2.75 rounded-[1px] ${
                 cellClasses[day.tier]
               } transition-transform duration-100 hover:scale-125 focus:scale-125 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer`}
             />

@@ -50,7 +50,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-canvas pt-16 sm:pt-20 pb-12 transition-colors">
+    <footer className="w-full bg-canvas pt-16 sm:pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Top Section: Navigation Links (Left) + Brand Wordmark (Right) */}
         <div className="pb-8 sm:pb-10 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-6">
@@ -109,7 +109,7 @@ export default function Footer() {
               fill
               sizes="(max-width: 1280px) 100vw, 1200px"
               loading="eager"
-              className="object-cover object-center pointer-events-none"
+              className="object-cover object-center pointer-events-none transition-[filter] duration-300 dark:brightness-[0.90] dark:contrast-[1.04]"
               draggable={false}
             />
           </div>

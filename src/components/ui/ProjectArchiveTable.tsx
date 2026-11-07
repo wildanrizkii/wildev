@@ -106,7 +106,7 @@ export default function ProjectArchiveTable({
               <button
                 type="button"
                 onClick={() => onOpenCaseStudy(project)}
-                className="min-h-[44px] inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider text-primary group-hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="min-h-11 inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider text-primary group-hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                 aria-label={`View case study for ${project.title}`}
               >
                 <span>Case Study</span>

@@ -1,18 +1,50 @@
 @import "tailwindcss";
 
-@theme {
-  --color-canvas: #EDECEB;
-  --color-surface: #EBEBE8;
-  --color-primary: #111111;
-  --color-secondary: #777777;
-  --color-accent: #303030;
-  --color-borderline: #DDDDDA;
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
 
-  --color-cell-0: #E4E4E1;
-  --color-cell-1: #C8C8C2;
-  --color-cell-2: #8E8E88;
-  --color-cell-3: #454542;
-  --color-cell-4: #181816;
+:root {
+  --canvas: #EDECEB;
+  --surface: #EBEBE8;
+  --primary: #111111;
+  --secondary: #777777;
+  --accent: #303030;
+  --borderline: #DDDDDA;
+
+  --cell-0: #E4E4E1;
+  --cell-1: #C8C8C2;
+  --cell-2: #8E8E88;
+  --cell-3: #454542;
+  --cell-4: #181816;
+}
+
+.dark, [data-theme="dark"] {
+  --canvas: #121211;
+  --surface: #1A1A18;
+  --primary: #EDEDEB;
+  --secondary: #8A8A85;
+  --accent: #D4D3CE;
+  --borderline: #2B2B28;
+
+  --cell-0: #1E1E1C;
+  --cell-1: #363632;
+  --cell-2: #63635C;
+  --cell-3: #A3A298;
+  --cell-4: #EDEDEB;
+}
+
+@theme {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-borderline: var(--borderline);
+
+  --color-cell-0: var(--cell-0);
+  --color-cell-1: var(--cell-1);
+  --color-cell-2: var(--cell-2);
+  --color-cell-3: var(--cell-3);
+  --color-cell-4: var(--cell-4);
 
   --font-sans: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono-tech: var(--font-mono), 'JetBrains Mono', ui-monospace, monospace;
@@ -26,9 +58,64 @@ html {
   scrollbar-gutter: stable;
 }
 
+/* Smooth View Transitions API crossfade */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fallback: Synchronize ALL elements to the exact same duration and 0s delay during theme toggle */
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition-property: background-color, border-color, color, fill, stroke !important;
+  transition-duration: 300ms !important;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+  html.theme-switching,
+  html.theme-switching * {
+    transition: none !important;
+  }
+}
+
 body {
-  background-color: var(--color-canvas, #EDECEB);
-  color: var(--color-primary, #111111);
+  background-color: var(--color-canvas);
+  color: var(--color-primary);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,13 +152,13 @@ html.lenis, html.lenis body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #EDECEB;
+  background: var(--canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4C4C0;
+  background: var(--borderline);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #111111;
+  background: var(--primary);
 }
 
 /* Heatmap horizontal smooth drag/scroll container */

@@ -75,7 +75,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close modal"
-                className="min-h-[44px] min-w-[44px] flex items-center justify-center text-secondary hover:text-primary transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary -mr-2 -mt-2"
+                className="min-h-11 min-w-11 flex items-center justify-center text-secondary hover:text-primary transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary -mr-2 -mt-2"
               >
                 <FiX className="w-5 h-5" aria-hidden="true" />
               </button>
@@ -123,7 +123,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-[11px] font-mono-tech px-2.5 py-1 border border-borderline bg-white/60 text-accent"
+                    className="text-[11px] font-mono-tech px-2.5 py-1 border border-borderline bg-surface/80 text-accent"
                   >
                     {tech}
                   </span>
@@ -141,7 +141,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.links.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-h-[44px] inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider text-primary hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                  className="min-h-11 inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider text-primary hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                 >
                   <span>Visit Application</span>
                   <FiExternalLink className="w-3.5 h-3.5" aria-hidden="true" />

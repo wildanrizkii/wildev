@@ -37,7 +37,7 @@ export default function HeroSection() {
           >
             <Image
               alt="Editorial portrait of software engineer with handcrafted leather artisan field pack on stone coast"
-              className="w-full h-full object-cover object-center pointer-events-none select-none"
+              className="w-full h-full object-cover object-center pointer-events-none select-none transition-[filter] duration-300 dark:brightness-[0.94] dark:contrast-[1.04]"
               priority
               fetchPriority="high"
               fill

@@ -279,7 +279,7 @@ export default function ProjectCard({
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="text-[11px] font-mono-tech px-2.5 py-1 border border-borderline bg-white/60 text-accent"
+                className="text-[11px] font-mono-tech px-2.5 py-1 border border-borderline bg-surface/80 text-accent"
               >
                 {tech}
               </span>

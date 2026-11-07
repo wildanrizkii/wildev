@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -22,7 +23,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#EDECEB",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#EDECEB" },
+    { media: "(prefers-color-scheme: dark)", color: "#121211" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -49,6 +53,8 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `(function(){try{var k='wildev-theme',s=localStorage.getItem(k),d=window.matchMedia('(prefers-color-scheme: dark)').matches;var dark=s==='dark'||(!s&&d)||(s==='system'&&d);var r=document.documentElement;if(dark){r.classList.add('dark');r.setAttribute('data-theme','dark');r.style.colorScheme='dark';}else{r.classList.remove('dark');r.setAttribute('data-theme','light');r.style.colorScheme='light';}}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,12 +66,17 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="bg-canvas text-primary selection:bg-primary selection:text-canvas min-h-screen flex flex-col font-sans">
-        <SmoothScrollProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <SmoothScrollProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

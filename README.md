@@ -18,229 +18,230 @@
 
 ---
 
-[Ikhtisar](#-ikhtisar-proyek) • [Fitur Utama](#-fitur-utama) • [Modul & Dependensi](#-modul--dependensi-yang-digunakan) • [Struktur Proyek](#-struktur-arsitektur-proyek) • [Memulai](#-panduan-instalasi--memulai) • [Scripts](#-perintah-scripts) • [Lisensi](#-lisensi)
+[Overview](#-project-overview) • [Key Features](#-key-features) • [Modules & Dependencies](#-modules--dependencies) • [Project Architecture](#-project-architecture) • [Getting Started](#-getting-started) • [Scripts](#-available-scripts) • [Design Philosophy](#-design-philosophy--typography) • [License](#-license)
 
 ---
 
 </div>
 
-## 📖 Ikhtisar Proyek
+## 📖 Project Overview
 
-**WILDev. Portfolio** adalah website portofolio rekayasa perangkat lunak (software engineering) personal yang dirancang dengan pendekatan **Swiss International Typographic Style**. Proyek ini memadukan tata letak editorial yang presisi, palet warna *warm canvas* (`#EDECEB`), tipografi kurasi (*Inter* & *JetBrains Mono*), aksen mikro monospaced, serta performa tinggi berbasis **Next.js 16 App Router** dan **React 19**.
+**WILDev. Portfolio** is a personal software engineering portfolio website designed with a **Swiss International Typographic Style** approach. The project blends precise editorial layouts, a warm canvas color palette (`#EDECEB`), curated typography (_Inter_ & _JetBrains Mono_), monospaced micro-accents, and high-performance frontend engineering powered by **Next.js 16 App Router** and **React 19**.
 
-Selain menyajikan showcase proyek dan riwayat karir secara interaktif, portofolio ini terintegrasi langsung dengan **GitHub API** untuk menampilkan data kontribusi live, matriks heatmap aktivitas tahunan, dan repositori publik secara real-time.
+Beyond showcasing interactive projects and career history, this portfolio directly integrates with the **GitHub API** to display live contribution data, an annual activity heatmap matrix, and real-time public repositories.
 
 ---
 
-## ✨ Fitur Utama
+## ✨ Key Features
 
-- 📐 **Swiss Editorial Design System**: Grid asimetris presisi, hairline borders, micro-badges, dan hierarki visual bersih tanpa dekorasi berlebih (*anti-slop*).
-- 🌊 **Inertial Smooth Scrolling**: Pengalaman scrolling mulus menggunakan engine **Lenis** yang dioptimasi via custom React context provider.
+- 📐 **Swiss Editorial Design System**: Precise asymmetric grids, hairline borders, micro-badges, and clean visual hierarchy without decorative bloat (_anti-slop_).
+- 🌊 **Inertial Smooth Scrolling**: Fluid scrolling experience powered by the **Lenis** engine, optimized via a custom React context provider.
 - 🐙 **Live GitHub Activity & Heatmap**:
-  - Pengambilan data kontribusi dinamis dari GitHub API dengan fallback data matriks kurasi.
-  - Visualisasi kontribusi 52 minggu (Heatmap Grid) dengan tooltip statistik.
-  - Ringkasan komit total, streak aktivitas terpanjang, dan bahasa pemrograman dominan.
+  - Dynamic contribution data fetching via GitHub API with a curated matrix fallback.
+  - 52-week contribution visualization (Heatmap Grid) with interactive statistics tooltips.
+  - Metrics for total commits, longest active streak, and dominant programming languages.
 - 💼 **Interactive Project Showcase & Modal**:
-  - Kartu proyek dengan thumbnail resolusi tinggi dan meta tags teknis.
-  - Modal detail interaktif lengkap dengan deskripsi arsitektur dan link preview.
-  - Lock scroll handler otomatis saat modal aktif.
-- ⏱️ **Live Local Clock**: Jam real-time akurat penunjuk zona waktu lokal (`Asia/Jakarta / WIB`) dengan indikator status availability.
-- 📋 **Seamless Interaction**: Tombol salin email instan satu kali klik dengan feedback notifikasi dinamis (`useClipboard`).
-- 📱 **Adaptive Mobile Drawer**: Navigasi responsif dengan gestur drawer halus untuk perangkat layar kecil.
+  - Project cards featuring high-resolution thumbnails and technical meta tags.
+  - Interactive detail modal with comprehensive architectural overviews and live preview links.
+  - Automatic body scroll lock handler while the modal is open.
+- ⏱️ **Live Local Clock**: Accurate real-time clock displaying the local time zone (`Asia/Jakarta / WIB`) with availability status indicator.
+- 📋 **Seamless Interaction**: One-click instant email copy button with dynamic toast feedback (`useClipboard`).
+- 📱 **Adaptive Mobile Drawer**: Responsive navigation featuring smooth drawer gestures optimized for compact displays.
 
 ---
 
-## 📦 Modul & Dependensi yang Digunakan
+## 📦 Modules & Dependencies
 
-Berikut adalah daftar lengkap modul, pustaka, dan dependensi yang digunakan dalam proyek ini beserta fungsinya masing-masing:
+Below is the complete list of modules, libraries, and dependencies used in this project along with their respective roles:
 
 ### 1. Core Framework & Runtime
 
-| Modul / Paket | Versi | Peran & Deskripsi Penggunaan |
-| :--- | :---: | :--- |
-| **`next`** | `16.4.5` | Framework React modern generasi terbaru dengan arsitektur **App Router**, Turbopack engine, React Server Components (RSC), dan Route Handlers API. |
-| **`react`** | `19.3.0` | Library utama pembangunan antarmuka berbasis komponen deklaratif, hooks, serta concurrent rendering. |
-| **`react-dom`** | `19.3.0` | Adapter rendering React khusus untuk Document Object Model (DOM) browser. |
-| **`typescript`** | `^5` | Bahasa pemrograman bertipe statis untuk menjamin type-safety, DX optimal, dan skalabilitas kode. |
+| Module / Package | Version  | Role & Usage Description                                                                                                     |
+| :--------------- | :------: | :--------------------------------------------------------------------------------------------------------------------------- |
+| **`next`**       | `16.4.5` | Modern Next.js framework with **App Router** architecture, Turbopack engine, React Server Components (RSC), and Route Handlers API. |
+| **`react`**      | `19.3.0` | Core declarative UI library utilizing modern hooks and concurrent rendering.                                                 |
+| **`react-dom`**  | `19.3.0` | React rendering adapter for the browser Document Object Model (DOM).                                                         |
+| **`typescript`** |   `^5`   | Statically typed programming language providing type safety, optimal DX, and codebase scalability.                          |
 
-### 2. Styling, Layout & Animasi
+### 2. Styling, Layout & Animation
 
-| Modul / Paket | Versi | Peran & Deskripsi Penggunaan |
-| :--- | :---: | :--- |
-| **`tailwindcss`** | `^4` | Utility-first CSS framework v4 dengan engine berkecepatan tinggi tanpa overhead konfigurasi rumit. |
-| **`@tailwindcss/turbopack`** | `^4` | Plugin resmi Tailwind untuk integrasi native kompilasi instan dengan Next.js Turbopack. |
-| **`lenis`** | `^1.3.27` | Engine smooth scroll modern berbasis momentum/inersia yang ringan dan responsif pada desktop maupun touch device. |
-| **`framer-motion`** | `^14.9.1` | Pustaka animasi deklaratif untuk transisi halaman, modal, interaksi kartu, dan efek hover mikro. |
-| **`gsap`** | `^3.15.1` | GreenSock Animation Platform untuk manipulasi timeline animasi presisi dan performa tinggi. |
-| **`@gsap/react`** | `^2.1.2` | Wrapper resmi integrasi lifecycle GSAP dengan React hooks (`useGSAP`). |
+| Module / Package             |  Version  | Role & Usage Description                                                                                         |
+| :--------------------------- | :-------: | :---------------------------------------------------------------------------------------------------------------- |
+| **`tailwindcss`**            |   `^4`    | Utility-first CSS framework v4 with a high-performance engine and zero-config overhead.                          |
+| **`@tailwindcss/turbopack`** |   `^4`    | Official Tailwind plugin providing native compilation integration with Next.js Turbopack.                       |
+| **`lenis`**                  | `^1.3.27` | Modern inertia/momentum-based smooth scroll engine, lightweight and responsive across desktop and touch devices. |
+| **`framer-motion`**          | `^14.9.1` | Declarative animation library powering page transitions, modals, card interactions, and micro-hover effects.     |
+| **`gsap`**                   | `^3.15.1` | GreenSock Animation Platform for high-performance, precision animation timelines.                                |
+| **`@gsap/react`**            | `^2.1.2`  | Official GSAP integration wrapper for React component lifecycles (`useGSAP`).                                    |
 
 ### 3. Data Management & Utilities
 
-| Modul / Paket | Versi | Peran & Deskripsi Penggunaan |
-| :--- | :---: | :--- |
-| **`@tanstack/redact`** | `^0.3.1` | Utility library dari TanStack suite untuk manajemen dan pemrosesan data terstruktur secara aman. |
-| **`react-icons`** | `^5.7.0` | Kumpulan icon SVG lengkap mencakup Simple Icons, Feather Icons, dan Lucide Icons untuk tombol, link sosial, dan indikator. |
-| **`clsx`** | `^2.1.1` | Utilitas ultra-ringan untuk merangkai nama kelas CSS bersyarat (*conditional classNames*). |
-| **`tailwind-merge`** | `^3.7.0` | Helper untuk menggabungkan class Tailwind CSS tanpa konflik prioritas (digabungkan bersama `clsx` dalam helper `cn()`). |
+| Module / Package       | Version  | Role & Usage Description                                                                                                   |
+| :--------------------- | :------: | :------------------------------------------------------------------------------------------------------------------------- |
+| **`@tanstack/redact`** | `^0.3.1` | Utility library from the TanStack suite for safe handling and masking of sensitive structured data.                        |
+| **`react-icons`**      | `^5.7.0` | Comprehensive SVG icon collection including Simple Icons, Feather Icons, and Lucide Icons for buttons, social links, and indicators. |
+| **`clsx`**             | `^2.1.1` | Ultra-lightweight utility for conditionally constructing CSS class strings.                                                |
+| **`tailwind-merge`**   | `^3.7.0` | Helper to merge Tailwind CSS classes without specificity conflicts (composed with `clsx` in the `cn()` utility).           |
 
 ### 4. Developer Tools & Code Quality
 
-| Modul / Paket | Versi | Peran & Deskripsi Penggunaan |
-| :--- | :---: | :--- |
-| **`eslint`** | `^9` | Linter JavaScript/TypeScript generasi 9 untuk menjaga standar, konsistensi, dan kebersihan kode. |
-| **`eslint-config-next`** | `16.4.5` | Konfigurasi rules linting khusus Next.js untuk kepatuhan best practice App Router dan Core Web Vitals. |
-| **`@types/node`** | `^20` | Definisi tipe statis TypeScript untuk lingkungan runtime Node.js. |
-| **`@types/react`** | `^19` | Definisi tipe TypeScript untuk React 19 API, hooks, dan JSX components. |
-| **`@types/react-dom`** | `^19` | Definisi tipe TypeScript untuk DOM renderer React. |
+| Module / Package         | Version  | Role & Usage Description                                                                               |
+| :----------------------- | :------: | :----------------------------------------------------------------------------------------------------- |
+| **`eslint`**             |   `^9`   | Next-generation JavaScript/TypeScript linter maintaining code consistency and quality standards.       |
+| **`eslint-config-next`** | `16.4.5` | Next.js linting rule configuration enforcing App Router and Core Web Vitals best practices.            |
+| **`@types/node`**        |  `^20`   | TypeScript type definitions for the Node.js runtime environment.                                       |
+| **`@types/react`**       |  `^19`   | TypeScript type definitions for React 19 APIs, hooks, and JSX elements.                                |
+| **`@types/react-dom`**   |  `^19`   | TypeScript type definitions for the React DOM renderer.                                                |
 
 ---
 
-## 🏛️ Struktur Arsitektur Proyek
+## 🏛️ Project Architecture
 
-Berikut adalah gambaran hierarki dan organisasi folder di dalam direktori `src/`:
+Below is the directory hierarchy and structural organization inside the `src/` directory:
 
 ```
 wildev-portfolio/
-├── public/                     # Aset statis publik (favicon, SVG, media)
+├── public/                     # Static public assets (favicons, SVGs, media)
 ├── src/
 │   ├── app/                    # Next.js 16 App Router
 │   │   ├── api/                # API Route Handlers
-│   │   │   └── github-activity/# Endpoint proxy data aktivitas GitHub
-│   │   ├── favicon.ico         # Favicon aplikasi
-│   │   ├── globals.css         # Styling global, font variables, & utilitas Tailwind v4
-│   │   ├── layout.tsx          # Root Layout (Fonts, Metadata, Provider, Header & Footer)
-│   │   └── page.tsx            # Halaman utama portofolio (Server Component)
+│   │   │   └── github-activity/# GitHub activity data proxy endpoint
+│   │   ├── favicon.ico         # Application favicon
+│   │   ├── globals.css         # Global stylesheet, font variables, & Tailwind v4 utilities
+│   │   ├── layout.tsx          # Root Layout (Fonts, Metadata, Providers, Header & Footer)
+│   │   └── page.tsx            # Main portfolio page (Server Component)
 │   ├── components/
-│   │   ├── layout/             # Komponen struktural (Header, Footer, MobileDrawer)
-│   │   ├── sections/           # Section utama satu halaman:
-│   │   │   ├── HeroSection.tsx         # Headline editorial & status ringkas
-│   │   │   ├── AboutSection.tsx        # Narasi bio & filosofi engineering
-│   │   │   ├── SelectedWorksSection.tsx# Grid karya terpilih & modal trigger
-│   │   │   ├── TechStackSection.tsx    # 4 pilar arsitektur keahlian teknis
-│   │   │   ├── ActivitySection.tsx     # Heatmap GitHub & repository showcase
-│   │   │   ├── ExperienceSection.tsx   # Riwayat profesional & pendidikan
-│   │   │   └── ConnectSection.tsx      # Kanal kontak & copy email
-│   │   └── ui/                 # Komponen UI modular:
-│   │       ├── CopyEmailButton.tsx     # Tombol interaktif salin email
-│   │       ├── ExperienceRow.tsx       # Baris expandable riwayat kerja
-│   │       ├── HeatmapGrid.tsx         # Grid visualisasi kontribusi GitHub 52 minggu
-│   │       ├── LiveClock.tsx           # Jam zona waktu Asia/Jakarta real-time
-│   │       ├── ProjectArchiveTable.tsx # Tabel arsip proyek tambahan
-│   │       ├── ProjectCard.tsx         # Kartu display proyek
-│   │       ├── ProjectModal.tsx        # Modal overlay detail proyek
-│   │       ├── RepositoryCard.tsx      # Kartu info repositori GitHub
-│   │       ├── SectionHeader.tsx       # Header standar penomoran section
-│   │       └── TechPillarCard.tsx      # Kartu pilar tech stack
-│   ├── data/                   # Data statis & fallback konten kurasi
-│   │   ├── contribution-matrix.ts      # Matriks kontribusi fallback 365 hari
-│   │   ├── experience.ts               # Data riwayat karir
-│   │   ├── projects.ts                 # Data daftar proyek & screenshot
-│   │   ├── repositories.ts             # Data fallback repositori GitHub
-│   │   └── tech-stack.ts               # Data 4 pilar spesialisasi teknis
+│   │   ├── layout/             # Structural layout components (Header, Footer, MobileDrawer)
+│   │   ├── sections/           # Primary single-page sections:
+│   │   │   ├── HeroSection.tsx         # Editorial headline & concise availability status
+│   │   │   ├── AboutSection.tsx        # Bio narrative & engineering philosophy
+│   │   │   ├── SelectedWorksSection.tsx# Curated project showcase grid & modal triggers
+│   │   │   ├── TechStackSection.tsx    # 4 architectural pillars of technical expertise
+│   │   │   ├── ActivitySection.tsx     # GitHub activity heatmap & repository showcase
+│   │   │   ├── ExperienceSection.tsx   # Professional experience & education timeline
+│   │   │   └── ConnectSection.tsx      # Contact channels & copy-email action
+│   │   └── ui/                 # Modular UI components:
+│   │       ├── CopyEmailButton.tsx     # Interactive copy-to-clipboard email button
+│   │       ├── ExperienceRow.tsx       # Expandable career experience row
+│   │       ├── HeatmapGrid.tsx         # 52-week GitHub contribution visualization grid
+│   │       ├── LiveClock.tsx           # Real-time Asia/Jakarta timezone clock
+│   │       ├── ProjectArchiveTable.tsx # Comprehensive project archive table
+│   │       ├── ProjectCard.tsx         # Project showcase card
+│   │       ├── ProjectModal.tsx        # In-depth project detail modal overlay
+│   │       ├── RepositoryCard.tsx      # GitHub repository overview card
+│   │       ├── SectionHeader.tsx       # Standardized numbered section header
+│   │       └── TechPillarCard.tsx      # Technical stack pillar card
+│   ├── data/                   # Static data & curated fallback content
+│   │   ├── contribution-matrix.ts      # 365-day fallback contribution matrix
+│   │   ├── experience.ts               # Career and education history data
+│   │   ├── projects.ts                 # Featured projects list & metadata
+│   │   ├── repositories.ts             # Fallback GitHub repository data
+│   │   └── tech-stack.ts               # 4 specialization pillars dataset
 │   ├── hooks/                  # Custom React Hooks
-│   │   ├── useClipboard.ts             # Hook helper salin teks dengan timeout state
-│   │   ├── useLiveClock.ts             # Hook live interval jam lokal
-│   │   └── useLockScroll.ts            # Hook pengunci scroll body saat modal terbuka
-│   ├── lib/                    # Utilitas umum & konektor eksternal
-│   │   ├── github.ts                   # Fetcher GitHub REST API & transformer data
-│   │   └── utils.ts                    # Helper utility (cn / clsx + tailwind-merge)
+│   │   ├── useClipboard.ts             # Clipboard copy hook with timeout feedback state
+│   │   ├── useLiveClock.ts             # Real-time local clock interval hook
+│   │   └── useLockScroll.ts            # Body scroll lock hook when modal is open
+│   ├── lib/                    # General utilities & external connectors
+│   │   ├── github.ts                   # GitHub REST API fetcher & data transformer
+│   │   └── utils.ts                    # Class merging utility (cn / clsx + tailwind-merge)
 │   ├── providers/              # Context Providers
-│   │   └── SmoothScrollProvider.tsx    # Provider inisialisasi Lenis Smooth Scroll
-│   └── types/                  # Definisi antarmuka TypeScript
-│       └── portfolio.ts                # Model data Project, TechPillar, GitHubStats, dll
-├── package.json                # Manifest dependensi & script proyek
-├── tsconfig.json               # Konfigurasi compiler TypeScript
-└── README.md                   # Dokumentasi proyek
+│   │   └── SmoothScrollProvider.tsx    # Lenis smooth scroll initialization provider
+│   └── types/                  # TypeScript interface definitions
+│       └── portfolio.ts                # Data models for Project, TechPillar, GitHubStats, etc.
+├── package.json                # Dependencies and project scripts manifest
+├── tsconfig.json               # TypeScript compiler configuration
+└── README.md                   # Project documentation
 ```
 
 ---
 
-## 🚀 Panduan Instalasi & Memulai
+## 🚀 Getting Started
 
-### Prasyarat
+### Prerequisites
 
-Pastikan lingkungan lokal Anda telah terpasang:
-- **Node.js**: `v20.x` atau lebih baru
-- **Package Manager**: `npm`, `pnpm`, atau `bun`
+Ensure your local development environment has:
 
-### 1. Kloning Repositori
+- **Node.js**: `v20.x` or later
+- **Package Manager**: `npm`, `pnpm`, or `bun`
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/wildanrizkii/wildev.git
 cd wildev
 ```
 
-### 2. Instalasi Dependensi
+### 2. Install Dependencies
 
 ```bash
 npm install
-# atau
+# or
 pnpm install
-# atau
+# or
 bun install
 ```
 
-### 3. Konfigurasi Variabel Lingkungan (Opsional)
+### 3. Configure Environment Variables (Optional)
 
-Buat file `.env.local` di root direktori untuk mengaktifkan sinkronisasi otomatis data akun GitHub Anda:
+Create a `.env.local` file in the root directory to enable live GitHub synchronization:
 
 ```env
-# Username akun GitHub untuk data live activity
+# GitHub account username for live activity data
 NEXT_PUBLIC_GITHUB_USERNAME=wildanrizkii
 
-# Personal Access Token GitHub (Opsional, untuk menaikkan rate-limit API)
+# GitHub Personal Access Token (Optional, to increase API rate limits)
 GITHUB_TOKEN=ghp_yourPersonalAccessTokenHere
 ```
 
-> **Catatan:** Jika environment variable tidak diset, aplikasi secara otomatis menggunakan data fallback kurasi yang tersedia di `src/data/`.
+> **Note:** If environment variables are not configured, the application automatically falls back to curated static data in `src/data/`.
 
-### 4. Menjalankan Server Development
+### 4. Run the Development Server
 
 ```bash
 npm run dev
 ```
 
-Buka peramban Anda di **[http://localhost:3000](http://localhost:3000)** untuk melihat antarmuka portofolio.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser to view the portfolio.
 
 ---
 
-## 🛠️ Perintah Scripts
+## 🛠️ Available Scripts
 
-| Perintah | Deskripsi |
-| :--- | :--- |
-| `npm run dev` | Menjalankan Next.js development server dengan integrasi Turbopack cepat. |
-| `npm run build` | Melakukan kompilasi dan optimasi bundle produksi (*production build*). |
-| `npm run start` | Menjalankan server aplikasi Next.js dalam mode produksi setelah build. |
-| `npm run lint` | Menjalankan ESLint untuk memeriksa kepatuhan dan kebersihan kode. |
-
----
-
-## 🎨 Filosofi Desain & Tipografi
-
-Desain portofolio ini menganut prinsip **Swiss Style** (International Typographic Style):
-- **Palet Warna Netral**: Latar kanvas hangat (`#EDECEB`), teks dominan `#1A1918`, serta border tipis `#D4D2CE`.
-- **Tipografi Harmonis**:
-  - **Inter**: Sans-serif netral untuk keterbacaan tinggi pada body text dan subheader.
-  - **JetBrains Mono**: Monospace presisi untuk metadata, label penomoran section (`01 / 06`), status badge, dan koordinat teknis.
-- **Micro-Interactions**: Animasi transisi subtle via Framer Motion dan momentum scrolling dari Lenis yang tidak mendistraksi pembaca.
+| Command         | Description                                                          |
+| :-------------- | :------------------------------------------------------------------- |
+| `npm run dev`   | Runs the Next.js development server with Turbopack for fast HMR.     |
+| `npm run build` | Compiles and optimizes the application for production.               |
+| `npm run start` | Starts the production server after a build.                          |
+| `npm run lint`  | Runs ESLint to check code consistency and quality.                   |
 
 ---
 
-## 👨‍💻 Profil & Pengembang
+## 🎨 Design Philosophy & Typography
 
-Dikembangkan dan dirawat dengan penuh perhatian oleh **Wildan Rizki (WILDev.)**.
+The portfolio design adheres to the principles of the **Swiss Style** (International Typographic Style):
+
+- **Neutral Palette**: Warm canvas background (`#EDECEB`), deep text (`#1A1918`), and subtle borders (`#D4D2CE`).
+- **Harmonious Typography**:
+  - **Inter**: Neutral sans-serif providing high legibility across body text and subheadings.
+  - **JetBrains Mono**: Precision monospace typeface for metadata, numbered section labels (`01 / 06`), status badges, and technical coordinates.
+- **Micro-Interactions**: Subtle Framer Motion transitions and Lenis momentum scrolling that enhance feel without distracting readers.
+
+---
+
+## 👨‍💻 Profile & Author
+
+Designed and engineered with care by **Wildan Rizki (WILDev.)**.
 
 - **GitHub**: [@wildanrizkii](https://github.com/wildanrizkii)
-- **Website**: [wildev.my.id](https://wildev.my.id) *(atau domain portofolio terkait)*
-- **Fokus**: Full-Stack Web Development, High-Performance Systems, UI/UX Engineering.
+- **Website**: [wildevv.vercel.app](https://wildev.vercel.app)
+- **Focus**: Full-Stack Web Development, High-Performance Systems, UI/UX Engineering.
 
 ---
 
-## 📄 Lisensi
+## 📄 License
 
-Proyek ini dirilis di bawah lisensi pribadi / [MIT License](LICENSE) *(silakan disesuaikan dengan kebutuhan lisensi Anda)*.
+This project is open-source and available under the [MIT License](LICENSE).
 
 <div align="center">
-  <small>© 2026 WILDev. Dirancang dengan presisi & standar rekayasa perangkat lunak modern.</small>
+  <small>© 2026 WILDev.</small>
 </div>
-
