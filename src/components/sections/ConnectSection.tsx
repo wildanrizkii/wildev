@@ -88,16 +88,16 @@ export default function ConnectSection() {
               Available for full-time engineering, contracts &amp; technical advisory.
             </p>
 
-            <div className="mt-6 pt-5 border-t border-borderline/70 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div className="mt-6 pt-5 border-t border-borderline/70 grid grid-cols-2 gap-2.5 sm:gap-3 items-center">
               <a
                 href={`mailto:${email}`}
-                className="h-11 px-5 text-xs font-mono-tech uppercase tracking-wider border border-primary bg-primary text-canvas hover:bg-transparent hover:text-primary transition-colors inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary flex-1"
+                className="h-11 px-2.5 sm:px-5 text-[11px] sm:text-xs font-mono-tech uppercase tracking-wider border border-primary bg-primary text-canvas hover:bg-transparent hover:text-primary transition-colors inline-flex items-center justify-center gap-1.5 sm:gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary w-full whitespace-nowrap"
               >
-                <FiMail className="w-3.5 h-3.5" aria-hidden="true" />
+                <FiMail className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                 <span>Send Email</span>
-                <FiArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                <FiArrowUpRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
               </a>
-              <CopyEmailButton email={email} className="flex-1" />
+              <CopyEmailButton email={email} className="w-full" />
             </div>
           </div>
         </motion.div>

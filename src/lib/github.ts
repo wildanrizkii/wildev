@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache";
 import {
   ContributionDay,
   GitHubActivityData,
@@ -354,6 +355,9 @@ export async function getGitHubRepositories(
 export async function getGitHubActivity(
   username = GITHUB_USERNAME
 ): Promise<GitHubActivityData> {
+  "use cache";
+  cacheLife("hours");
+
   const liveResult = await fetchLiveContributions(username);
 
   if (liveResult && liveResult.days.length > 0) {

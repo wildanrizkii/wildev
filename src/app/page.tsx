@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import SelectedWorksSection from "@/components/sections/SelectedWorksSection";
@@ -7,16 +8,21 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import ConnectSection from "@/components/sections/ConnectSection";
 import { getGitHubActivity } from "@/lib/github";
 
-export default async function Home() {
+async function ActivitySectionWrapper() {
   const githubData = await getGitHubActivity();
+  return <ActivitySection initialData={githubData} />;
+}
 
+export default function Home() {
   return (
     <>
       <HeroSection />
       <AboutSection />
       <SelectedWorksSection />
       <TechStackSection />
-      <ActivitySection initialData={githubData} />
+      <Suspense fallback={<ActivitySection />}>
+        <ActivitySectionWrapper />
+      </Suspense>
       <ExperienceSection />
       <ConnectSection />
     </>
