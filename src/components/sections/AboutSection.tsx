@@ -80,7 +80,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-5 flex flex-col justify-between space-y-8"
+          className="lg:col-span-5 flex flex-col justify-between space-y-8 transform-gpu will-change-[transform,opacity]"
         >
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-medium tracking-tightest leading-[1.12] text-primary">
@@ -127,7 +127,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-stretch"
+          className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-stretch transform-gpu will-change-[transform,opacity]"
         >
           {/* Subtle Vertical Rotated Accent Track (Echoing DEV and RETROSPECTIVE) */}
           <div

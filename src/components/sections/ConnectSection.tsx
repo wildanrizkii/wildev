@@ -59,7 +59,7 @@ export default function ConnectSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-7"
+          className="lg:col-span-7 transform-gpu will-change-[transform,opacity]"
         >
           <h2 className="text-4xl sm:text-6xl font-medium tracking-tightest text-primary leading-[1.05]">
             Good things start with a conversation.
@@ -108,7 +108,7 @@ export default function ConnectSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="lg:col-span-5 space-y-6 lg:pt-4"
+          className="lg:col-span-5 space-y-6 lg:pt-4 transform-gpu will-change-[transform,opacity]"
         >
           <div className="text-xs font-mono-tech uppercase tracking-widest text-primary pb-2 border-b border-borderline">
             Social &amp; Networks

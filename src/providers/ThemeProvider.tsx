@@ -125,8 +125,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // 1. If View Transitions API is supported, use it for 100% unified whole-page crossfade
+    const isOverlayOpen = Boolean(
+      document.querySelector('#mobile-navigation, [role="dialog"]')
+    );
+
+    // 1. If View Transitions API is supported and no overlay is open, use it for 100% unified whole-page crossfade
     if (
+      !isOverlayOpen &&
       "startViewTransition" in document &&
       !prefersReducedMotion &&
       typeof document.startViewTransition === "function"

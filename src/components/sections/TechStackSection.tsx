@@ -71,7 +71,7 @@ export default function TechStackSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.08 }}
-            className="h-full bg-canvas flex flex-col"
+            className="h-full bg-canvas flex flex-col transform-gpu will-change-[transform,opacity]"
           >
             <TechPillarCard pillar={pillar} />
           </motion.div>

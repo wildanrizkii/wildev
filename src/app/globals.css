@@ -164,9 +164,16 @@ html.lenis, html.lenis body {
 /* Heatmap horizontal smooth drag/scroll container */
 .heatmap-grid-scroll {
   display: grid;
-  grid-template-rows: repeat(7, 11px);
+  grid-template-rows: repeat(7, minmax(0, 1fr));
   grid-auto-flow: column;
-  grid-auto-columns: 11px;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 3.5px;
+  contain: layout style;
+}
+
+/* Disable pointer-events globally during active smooth scrolling to eliminate hover churn, hit-testing, and scroll jank across all sections */
+html.lenis.lenis-scrolling,
+html.lenis.lenis-scrolling * {
+  pointer-events: none !important;
 }
 

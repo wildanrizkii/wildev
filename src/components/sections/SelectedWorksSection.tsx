@@ -152,6 +152,7 @@ export default function SelectedWorksSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.05 }}
+            className="transform-gpu will-change-[transform,opacity]"
           >
             <ProjectCard
               project={project}

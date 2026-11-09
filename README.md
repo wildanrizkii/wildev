@@ -233,7 +233,7 @@ The portfolio design adheres to the principles of the **Swiss Style** (Internati
 Designed and engineered with care by **Wildan Rizki (WILDev.)**.
 
 - **GitHub**: [@wildanrizkii](https://github.com/wildanrizkii)
-- **Website**: [wildevv.vercel.app](https://wildev.vercel.app)
+- **Website**: [wildevv.vercel.app](https://wildevv.vercel.app)
 - **Focus**: Full-Stack Web Development, High-Performance Systems, UI/UX Engineering.
 
 ---

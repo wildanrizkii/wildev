@@ -40,7 +40,7 @@ export default function SmoothScrollProvider({
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.0,
     });
 
     lenisRef.current = lenisInstance;
@@ -52,13 +52,6 @@ export default function SmoothScrollProvider({
       rafId = requestAnimationFrame(raf);
     }
     rafId = requestAnimationFrame(raf);
-
-    const handleScroll = () => {
-      ScrollTrigger.update();
-    };
-    lenisInstance.on("scroll", handleScroll);
-
-    gsap.ticker.lagSmoothing(0);
 
     requestAnimationFrame(() => {
       setLenis(lenisInstance);
@@ -87,7 +80,6 @@ export default function SmoothScrollProvider({
     return () => {
       document.removeEventListener("click", handleAnchorClick);
       cancelAnimationFrame(rafId);
-      lenisInstance.off("scroll", handleScroll);
       lenisInstance.destroy();
       lenisRef.current = null;
       setLenis(null);

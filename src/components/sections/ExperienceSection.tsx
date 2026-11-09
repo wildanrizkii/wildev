@@ -71,6 +71,7 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
+            className="transform-gpu will-change-[transform,opacity]"
           >
             <ExperienceRow item={item} />
           </motion.div>

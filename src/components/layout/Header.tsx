@@ -68,7 +68,7 @@ export default function Header() {
         </nav>
 
         {/* Action Button & Mobile Menu Trigger */}
-        <div className="flex items-center space-x-3 sm:space-x-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <div className="hidden md:flex items-center">
             <ThemeToggle />
           </div>
@@ -89,7 +89,7 @@ export default function Header() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="md:hidden min-w-11 min-h-11 flex items-center justify-center p-2 text-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary relative"
+            className="md:hidden min-w-11 min-h-11 flex items-center justify-center p-2 -mr-[13px] text-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary relative"
           >
             <svg
               width="24"

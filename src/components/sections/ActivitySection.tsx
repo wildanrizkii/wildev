@@ -118,8 +118,8 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.6 }}
-        className="p-6 sm:p-8 bg-surface/50 border border-borderline"
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="p-6 sm:p-8 bg-surface/50 border border-borderline transform-gpu will-change-[transform,opacity]"
       >
         <div className="flex items-center justify-between mb-6 pb-4 border-b border-borderline">
           <div className="flex items-center space-x-2">
@@ -145,7 +145,7 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
 
         <Suspense
           fallback={
-            <div className="h-28 flex items-center justify-center text-xs font-mono-tech text-secondary">
+            <div className="h-40 min-h-[160px] flex items-center justify-center text-xs font-mono-tech text-secondary">
               Loading contribution activity...
             </div>
           }
@@ -170,7 +170,8 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="transform-gpu will-change-[transform,opacity]"
           >
             <RepositoryCard repo={repo} />
           </motion.div>

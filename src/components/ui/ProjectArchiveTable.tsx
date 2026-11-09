@@ -50,7 +50,7 @@ export default function ProjectArchiveTable({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
-            className="group py-5 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center transition-colors hover:bg-surface/50 px-2 -mx-2"
+            className="group py-5 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center transition-colors hover:bg-surface/50 px-2 -mx-2 transform-gpu will-change-[transform,opacity]"
           >
             {/* Col 1: Project Number */}
             <div className="lg:col-span-1 text-xs font-mono-tech text-secondary">

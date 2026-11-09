@@ -156,16 +156,6 @@ export default function HeroSection() {
             </div>
           </motion.div>
         </div>
-
-        {/* Far Right Minimalist Indicator Lines (|||) matching reference layout */}
-        <div
-          className="hidden xl:flex flex-col gap-1.5 absolute -right-5 top-1/2 -translate-y-1/2 opacity-70 pointer-events-none select-none"
-          aria-hidden="true"
-        >
-          <div className="w-[1.5px] h-4 bg-primary" />
-          <div className="w-[1.5px] h-4 bg-primary" />
-          <div className="w-[1.5px] h-4 bg-primary" />
-        </div>
       </div>
     </section>
   );
