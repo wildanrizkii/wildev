@@ -109,7 +109,7 @@ export default function SelectedWorksSection() {
             <button
               type="button"
               onClick={() => setFilter("all")}
-              className={`min-h-11 px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider transition-colors border ${
+              className={`min-h-11 px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider border ${
                 filter === "all"
                   ? "bg-primary text-canvas border-primary"
                   : "bg-surface/50 text-secondary border-borderline hover:text-primary"
@@ -120,7 +120,7 @@ export default function SelectedWorksSection() {
             <button
               type="button"
               onClick={() => setFilter("apps")}
-              className={`min-h-11 px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider transition-colors border ${
+              className={`min-h-11 px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider border ${
                 filter === "apps"
                   ? "bg-primary text-canvas border-primary"
                   : "bg-surface/50 text-secondary border-borderline hover:text-primary"
@@ -131,7 +131,7 @@ export default function SelectedWorksSection() {
             <button
               type="button"
               onClick={() => setFilter("apis")}
-              className={`min-h-11 px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider transition-colors border ${
+              className={`min-h-11 px-3 py-1.5 text-xs font-mono-tech uppercase tracking-wider border ${
                 filter === "apis"
                   ? "bg-primary text-canvas border-primary"
                   : "bg-surface/50 text-secondary border-borderline hover:text-primary"

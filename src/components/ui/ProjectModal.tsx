@@ -75,7 +75,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close modal"
-                className="min-h-11 min-w-11 flex items-center justify-center text-secondary hover:text-primary transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary -mr-2 -mt-2"
+                className="min-h-11 min-w-11 flex items-center justify-center text-secondary hover:text-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary -mr-2 -mt-2"
               >
                 <FiX className="w-5 h-5" aria-hidden="true" />
               </button>

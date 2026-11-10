@@ -91,7 +91,7 @@ const HeatmapCell = memo(function HeatmapCell({
         isSelected
           ? "border-primary ring-1 ring-inset ring-primary"
           : "border-borderline/40 hover:border-primary hover:ring-1 hover:ring-inset hover:ring-primary/80"
-      } transition-colors duration-100 relative focus:outline-none focus:border-primary focus:ring-1 focus:ring-inset focus:ring-primary cursor-pointer`}
+      } relative focus:outline-none focus:border-primary focus:ring-1 focus:ring-inset focus:ring-primary cursor-pointer`}
     />
   );
 });

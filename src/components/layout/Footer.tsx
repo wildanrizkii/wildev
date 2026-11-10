@@ -32,11 +32,15 @@ export default function Footer() {
     if (href.startsWith("#")) {
       e.preventDefault();
       const target = document.querySelector(href);
-      if (target && lenis) {
-        lenis.scrollTo(target as HTMLElement, {
-          offset: -80,
-          duration: 1.2,
-        });
+      if (target) {
+        if (lenis) {
+          lenis.scrollTo(target as HTMLElement, {
+            offset: 0,
+            duration: 1.2,
+          });
+        } else {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
@@ -64,7 +68,7 @@ export default function Footer() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleScrollTo(e, item.href)}
-                className="hover:text-primary transition-colors py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="hover:text-primary py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
               >
                 {item.label}
               </a>
@@ -109,7 +113,7 @@ export default function Footer() {
               fill
               sizes="(max-width: 1280px) 100vw, 1200px"
               loading="eager"
-              className="object-cover object-center pointer-events-none transition-[filter] duration-300 dark:brightness-[0.90] dark:contrast-[1.04]"
+              className="object-cover object-center pointer-events-none dark:brightness-[0.90] dark:contrast-[1.04]"
               draggable={false}
             />
           </div>

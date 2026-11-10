@@ -6,7 +6,7 @@ interface TechPillarCardProps {
 
 export default function TechPillarCard({ pillar }: TechPillarCardProps) {
   return (
-    <div className="h-full flex flex-col justify-between bg-surface/20 hover:bg-surface/40 transition-colors">
+    <div className="h-full flex flex-col justify-between bg-surface/20 hover:bg-surface/40">
       {/* Pillar Header */}
       <div className="p-5 sm:p-6 border-b border-borderline/80 flex items-center justify-between bg-surface/30">
         <div className="flex flex-col gap-1">
@@ -28,10 +28,10 @@ export default function TechPillarCard({ pillar }: TechPillarCardProps) {
         {pillar.items.map((item, idx) => (
           <li
             key={item}
-            className="flex-1 flex items-center justify-between px-5 sm:px-6 py-3.5 hover:bg-surface/60 transition-colors group min-h-[46px]"
+            className="flex-1 flex items-center justify-between px-5 sm:px-6 py-3.5 hover:bg-surface/60 group min-h-[46px]"
           >
             <div className="flex items-center gap-3 min-w-0">
-              <span className="font-mono-tech text-[10px] text-secondary/60 group-hover:text-primary transition-colors select-none">
+              <span className="font-mono-tech text-[10px] text-secondary/60 group-hover:text-primary select-none">
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <span className="font-mono-tech text-xs text-primary tracking-tight">
@@ -39,7 +39,7 @@ export default function TechPillarCard({ pillar }: TechPillarCardProps) {
               </span>
             </div>
             <span
-              className="w-1 h-1 rounded-full bg-borderline group-hover:bg-primary transition-colors ml-2 shrink-0"
+              className="w-1 h-1 rounded-full bg-borderline group-hover:bg-primary ml-2 shrink-0"
               aria-hidden="true"
             />
           </li>

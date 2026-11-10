@@ -171,7 +171,7 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="transform-gpu will-change-[transform,opacity]"
+            className="h-full flex flex-col transform-gpu will-change-[transform,opacity]"
           >
             <RepositoryCard repo={repo} />
           </motion.div>
@@ -184,7 +184,7 @@ export default function ActivitySection({ initialData }: ActivitySectionProps) {
           href={profileUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="min-h-[44px] inline-flex items-center space-x-2 text-xs font-mono-tech uppercase tracking-wider text-primary border border-primary px-5 py-2.5 hover:bg-primary hover:text-canvas transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+          className="min-h-[44px] inline-flex items-center space-x-2 text-xs font-mono-tech uppercase tracking-wider text-primary border border-primary px-5 py-2.5 hover:bg-primary hover:text-canvas focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
         >
           <span>Explore GitHub Profile</span>
           <FiArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />

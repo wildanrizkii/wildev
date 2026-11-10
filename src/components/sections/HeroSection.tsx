@@ -11,11 +11,15 @@ export default function HeroSection() {
     if (href.startsWith("#")) {
       e.preventDefault();
       const target = document.querySelector(href);
-      if (target && lenis) {
-        lenis.scrollTo(target as HTMLElement, {
-          offset: -75,
-          duration: 1.2,
-        });
+      if (target) {
+        if (lenis) {
+          lenis.scrollTo(target as HTMLElement, {
+            offset: 0,
+            duration: 1.2,
+          });
+        } else {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
@@ -37,7 +41,7 @@ export default function HeroSection() {
           >
             <Image
               alt="Editorial portrait of software engineer with handcrafted leather artisan field pack on stone coast"
-              className="w-full h-full object-cover object-center pointer-events-none select-none transition-[filter] duration-300 dark:brightness-[0.94] dark:contrast-[1.04]"
+              className="w-full h-full object-cover object-center pointer-events-none select-none dark:brightness-[0.94] dark:contrast-[1.04]"
               priority
               fetchPriority="high"
               fill
@@ -148,7 +152,7 @@ export default function HeroSection() {
                 <a
                   href="#works"
                   onClick={(e) => handleScrollTo(e, "#works")}
-                  className="w-full sm:w-auto min-h-11 px-8 py-3.5 border border-primary text-xs font-mono-tech uppercase tracking-wider text-primary text-center hover:bg-primary hover:text-canvas transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary flex items-center justify-center select-none"
+                  className="w-full sm:w-auto min-h-11 px-8 py-3.5 border border-primary text-xs font-mono-tech uppercase tracking-wider text-primary text-center hover:bg-primary hover:text-canvas focus:outline-none focus-visible:ring-1 focus-visible:ring-primary flex items-center justify-center select-none"
                 >
                   Explore works
                 </a>

@@ -198,7 +198,7 @@ export default function AboutSection() {
                 {foundations.map((item) => (
                   <div
                     key={item.code}
-                    className="p-5 sm:p-6 bg-surface/50 border border-borderline hover:border-primary/40 transition-colors flex flex-col justify-between"
+                    className="p-5 sm:p-6 bg-surface/50 border border-borderline hover:border-primary/40 flex flex-col justify-between"
                   >
                     <div>
                       <span className="font-mono-tech text-[11px] text-secondary tracking-wider block">

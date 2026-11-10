@@ -23,17 +23,21 @@ export default function Header() {
     if (href.startsWith("#")) {
       e.preventDefault();
       const target = document.querySelector(href);
-      if (target && lenis) {
-        lenis.scrollTo(target as HTMLElement, {
-          offset: -80,
-          duration: 1.2,
-        });
+      if (target) {
+        if (lenis) {
+          lenis.scrollTo(target as HTMLElement, {
+            offset: 0,
+            duration: 1.2,
+          });
+        } else {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
 
   return (
-    <header className="relative w-full z-40 bg-canvas transition-colors duration-200">
+    <header className="relative w-full z-40 bg-canvas">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between relative">
         {/* Brand Logo / Wordmark */}
         <a
@@ -60,7 +64,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={(e) => handleScrollTo(e, item.href)}
-              className="hover:text-primary transition-colors duration-150 py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+              className="hover:text-primary py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
             >
               {item.label}
             </a>
@@ -76,7 +80,7 @@ export default function Header() {
           <a
             href="#connect"
             onClick={(e) => handleScrollTo(e, "#connect")}
-            className="hidden sm:inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-canvas transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary min-h-11"
+            className="hidden sm:inline-flex items-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-canvas focus:outline-none focus-visible:ring-1 focus-visible:ring-primary min-h-11"
           >
             <span>Contact</span>
             <FiArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -89,7 +93,7 @@ export default function Header() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="md:hidden min-w-11 min-h-11 flex items-center justify-center p-2 -mr-[13px] text-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary relative"
+            className="md:hidden min-w-11 min-h-11 flex items-center justify-center p-2 -mr-3.25 text-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary relative"
           >
             <svg
               width="24"

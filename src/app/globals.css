@@ -91,15 +91,19 @@ html {
   }
 }
 
-/* Fallback: Synchronize ALL elements to the exact same duration and 0s delay during theme toggle */
+/* Fallback: Smooth background and text color transition for main layout containers when View Transitions API is not available */
 html.theme-switching,
-html.theme-switching *,
-html.theme-switching *::before,
-html.theme-switching *::after {
-  transition-property: background-color, border-color, color, fill, stroke !important;
-  transition-duration: 300ms !important;
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
-  transition-delay: 0s !important;
+html.theme-switching body,
+html.theme-switching header,
+html.theme-switching footer,
+html.theme-switching main,
+html.theme-switching #mobile-navigation,
+html.theme-switching [role="dialog"],
+html.theme-switching section,
+html.theme-switching nav {
+  transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -108,7 +112,11 @@ html.theme-switching *::after {
     animation: none !important;
   }
   html.theme-switching,
-  html.theme-switching * {
+  html.theme-switching body,
+  html.theme-switching header,
+  html.theme-switching footer,
+  html.theme-switching main,
+  html.theme-switching #mobile-navigation {
     transition: none !important;
   }
 }
@@ -171,9 +179,8 @@ html.lenis, html.lenis body {
   contain: layout style;
 }
 
-/* Disable pointer-events globally during active smooth scrolling to eliminate hover churn, hit-testing, and scroll jank across all sections */
-html.lenis.lenis-scrolling,
-html.lenis.lenis-scrolling * {
-  pointer-events: none !important;
+/* Disable pointer-events on main content during active smooth scrolling to eliminate hover churn, hit-testing, and scroll jank without blocking navigation */
+html.lenis.lenis-scrolling main {
+  pointer-events: none;
 }
 

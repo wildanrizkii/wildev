@@ -125,13 +125,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    const isOverlayOpen = Boolean(
-      document.querySelector('#mobile-navigation, [role="dialog"]')
-    );
-
-    // 1. If View Transitions API is supported and no overlay is open, use it for 100% unified whole-page crossfade
+    // 1. If View Transitions API is supported, use it for 100% unified whole-page crossfade
     if (
-      !isOverlayOpen &&
       "startViewTransition" in document &&
       !prefersReducedMotion &&
       typeof document.startViewTransition === "function"
@@ -152,14 +147,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
     }
 
-    // 2. Fallback: Force ALL components to the exact same 300ms duration with 0s delay
+    // 2. Fallback: Smooth CSS transition for browsers without View Transitions API
     const root = document.documentElement;
     root.classList.add("theme-switching");
     performThemeChange();
 
     window.setTimeout(() => {
       root.classList.remove("theme-switching");
-    }, 320);
+    }, 250);
   }, []);
 
   const toggleTheme = useCallback(() => {

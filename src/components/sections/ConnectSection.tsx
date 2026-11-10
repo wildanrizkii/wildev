@@ -91,7 +91,7 @@ export default function ConnectSection() {
             <div className="mt-6 pt-5 border-t border-borderline/70 grid grid-cols-2 gap-2.5 sm:gap-3 items-center">
               <a
                 href={`mailto:${email}`}
-                className="h-11 px-2.5 sm:px-5 text-[11px] sm:text-xs font-mono-tech uppercase tracking-wider border border-primary bg-primary text-canvas hover:bg-transparent hover:text-primary transition-colors inline-flex items-center justify-center gap-1.5 sm:gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary w-full whitespace-nowrap"
+                className="h-11 px-2.5 sm:px-5 text-[11px] sm:text-xs font-mono-tech uppercase tracking-wider border border-primary bg-primary text-canvas hover:bg-transparent hover:text-primary inline-flex items-center justify-center gap-1.5 sm:gap-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary w-full whitespace-nowrap"
               >
                 <FiMail className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                 <span>Send Email</span>
@@ -123,10 +123,10 @@ export default function ConnectSection() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="min-h-11 py-3.5 flex items-center justify-between group text-sm font-medium text-primary hover:text-secondary transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                    className="min-h-11 py-3.5 flex items-center justify-between group text-sm font-medium text-primary hover:text-secondary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                   >
                     <span className="inline-flex items-center gap-2.5">
-                      <Icon className="w-4 h-4 text-secondary group-hover:text-primary transition-colors" aria-hidden="true" />
+                      <Icon className="w-4 h-4 text-secondary group-hover:text-primary" aria-hidden="true" />
                       <span>{social.name}</span>
                     </span>
                     <FiArrowUpRight

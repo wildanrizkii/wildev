@@ -68,7 +68,7 @@ export default function SmoothScrollProvider({
         if (targetElement) {
           e.preventDefault();
           lenisInstance.scrollTo(targetElement as HTMLElement, {
-            offset: -80,
+            offset: 0,
             duration: 1.2,
           });
         }

@@ -7,7 +7,7 @@ interface RepositoryCardProps {
 
 export default function RepositoryCard({ repo }: RepositoryCardProps) {
   return (
-    <div className="p-6 bg-canvas border border-borderline flex flex-col justify-between hover:border-primary/40 transition-colors">
+    <div className="h-full p-6 bg-canvas border border-borderline flex flex-col justify-between hover:border-primary/40">
       <div>
         <div className="flex items-center justify-between text-xs font-mono-tech text-secondary mb-2">
           <span>PUBLIC REPOSITORY</span>

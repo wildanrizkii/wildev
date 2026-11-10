@@ -58,13 +58,19 @@ export default function MobileDrawer({
     onClose();
     if (href.startsWith("#")) {
       const target = document.querySelector(href);
-      if (target && lenis) {
-        requestAnimationFrame(() => {
-          lenis.scrollTo(target as HTMLElement, {
-            offset: -80,
-            duration: 1.2,
+      if (target) {
+        if (lenis) {
+          lenis.start();
+          requestAnimationFrame(() => {
+            lenis.scrollTo(target as HTMLElement, {
+              offset: 0,
+              duration: 1.2,
+              force: true,
+            });
           });
-        });
+        } else {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
@@ -128,7 +134,7 @@ export default function MobileDrawer({
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className="min-h-11 flex items-center text-sm font-medium text-secondary hover:text-primary transition-colors py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                    className="min-h-11 flex items-center text-sm font-medium text-secondary hover:text-primary py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                   >
                     {item.label}
                   </a>
@@ -146,14 +152,14 @@ export default function MobileDrawer({
               }}
               className="pt-4 border-t border-borderline flex flex-col gap-3"
             >
-              <ThemeToggle className="w-full justify-between px-4" showLabel />
+              <ThemeToggle className="w-full justify-between px-4 border border-borderline hover:border-primary" showLabel />
               <a
                 href="#connect"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick("#connect");
                 }}
-                className="min-h-11 w-full flex items-center justify-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-canvas transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                className="min-h-11 w-full flex items-center justify-center space-x-1.5 text-xs font-mono-tech uppercase tracking-wider px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-canvas focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
               >
                 <span>Contact</span>
                 <FiArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
