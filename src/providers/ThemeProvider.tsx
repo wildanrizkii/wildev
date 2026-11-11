@@ -125,10 +125,30 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // 1. If View Transitions API is supported, use it for 100% unified whole-page crossfade
+    // View Transitions API rasterizes the entire viewport into static snapshot pseudo-elements,
+    // which breaks active live GPU backdrop-filter compositing (causing blur to drop out and flash).
+    // When an overlay with backdrop blur is visibly mounted (e.g. mobile drawer or modal), fall back to CSS transitions.
+    const hasVisibleBackdropFilter = Array.from(
+      document.querySelectorAll('[class*="backdrop-blur"]')
+    ).some((el) => {
+      const htmlEl = el as HTMLElement;
+      if (typeof htmlEl.checkVisibility === "function") {
+        return htmlEl.checkVisibility();
+      }
+      const style = window.getComputedStyle(htmlEl);
+      return (
+        style.display !== "none" &&
+        style.visibility !== "hidden" &&
+        style.opacity !== "0"
+      );
+    });
+
+    // 1. If View Transitions API is supported and no visible backdrop overlay is active,
+    // use it for 100% unified whole-page crossfade
     if (
       "startViewTransition" in document &&
       !prefersReducedMotion &&
+      !hasVisibleBackdropFilter &&
       typeof document.startViewTransition === "function"
     ) {
       try {

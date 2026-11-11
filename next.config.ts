@@ -4,6 +4,7 @@ import { withRedact } from "@tanstack/redact/next";
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  allowedDevOrigins: ["192.168.75.176", "192.168.75.176:3000"],
   images: {
     minimumCacheTTL: 31536000,
     formats: ["image/avif", "image/webp"],
@@ -47,4 +48,3 @@ const nextConfig: NextConfig = {
 };
 
 export default withRedact(nextConfig);
-

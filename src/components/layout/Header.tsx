@@ -56,7 +56,7 @@ export default function Header() {
 
         {/* Desktop Navigation Links */}
         <nav
-          className="hidden md:flex items-center space-x-9 text-[13px] font-medium tracking-tight text-secondary md:absolute md:left-1/2 md:-translate-x-1/2"
+          className="hidden md:flex items-center space-x-9 text-[13px] font-medium tracking-tight text-primary md:absolute md:left-1/2 md:-translate-x-1/2"
           aria-label="Primary Navigation"
         >
           {navItems.map((item) => (
@@ -64,7 +64,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={(e) => handleScrollTo(e, item.href)}
-              className="hover:text-primary py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+              className="hover:text-secondary transition-colors py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
             >
               {item.label}
             </a>

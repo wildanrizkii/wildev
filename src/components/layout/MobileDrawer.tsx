@@ -134,7 +134,7 @@ export default function MobileDrawer({
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className="min-h-11 flex items-center text-sm font-medium text-secondary hover:text-primary py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+                    className="min-h-11 flex items-center text-sm font-medium text-primary hover:text-secondary transition-colors py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                   >
                     {item.label}
                   </a>

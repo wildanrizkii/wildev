@@ -70,10 +70,10 @@ export default function HeroSection() {
 
               <div className="space-y-1">
                 <span className="block text-xs font-semibold text-primary">
-                  Dimensions
+                  Core Disciplines
                 </span>
                 <p className="text-xs font-mono-tech text-secondary leading-relaxed">
-                  L: Full-Stack W: TypeScript H: Cloud SaaS
+                  Full-Stack Architecture // Cloud Infrastructure
                 </p>
               </div>
 
@@ -91,7 +91,7 @@ export default function HeroSection() {
             <div className="sm:col-span-6 sm:text-right space-y-3 font-mono-tech text-xs">
               <div>
                 <span className="text-[11px] text-secondary uppercase tracking-wider block">
-                  Materials:
+                  Primary Stack:
                 </span>
                 <span className="text-primary font-medium block mt-0.5">
                   TypeScript / Node.js

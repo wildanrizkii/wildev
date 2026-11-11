@@ -100,7 +100,8 @@ html.theme-switching main,
 html.theme-switching #mobile-navigation,
 html.theme-switching [role="dialog"],
 html.theme-switching section,
-html.theme-switching nav {
+html.theme-switching nav,
+html.theme-switching [class*="backdrop-blur"] {
   transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
               border-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
               color 200ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -116,7 +117,8 @@ html.theme-switching nav {
   html.theme-switching header,
   html.theme-switching footer,
   html.theme-switching main,
-  html.theme-switching #mobile-navigation {
+  html.theme-switching #mobile-navigation,
+  html.theme-switching [class*="backdrop-blur"] {
     transition: none !important;
   }
 }
